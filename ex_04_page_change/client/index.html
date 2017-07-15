@@ -1,0 +1,29 @@
+<head>
+  <title>exam 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+{{>header}}
+
+{{>main}}
+
+</body>
+
+<template name="main">
+
+  {{#if checkPage_page1}}
+    <div style="background-color: antiquewhite; height: 128px;">page 1</div>
+    <button class="btn-test-1">page2</button>
+  {{/if}}
+
+  {{#if checkPage_page2}}
+    <div style="background-color: indianred; height: 128px;" >page 2</div>
+    <button class="btn-test-2">page1</button>
+  {{/if}}
+
+  {{output_msg}}
+
+</template>

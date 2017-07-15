@@ -1,0 +1,28 @@
+<head>
+  <title>exam 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+{{>main}}
+
+</body>
+
+<template name="main">
+  <form id="addMsg" name="addMsg">
+    <label for="addMsg"></label>
+    <input type="text">
+
+    <button type="submit" >ok</button>
+  </form>
+
+  <ul>
+    {{#each msgLogSubcribe}}
+      <li>{{msg}}</li>
+    {{/each}}
+  </ul>
+
+
+</template>
