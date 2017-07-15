@@ -1,0 +1,1 @@
+msgLog = new Mongo.Collection('msgLog');
