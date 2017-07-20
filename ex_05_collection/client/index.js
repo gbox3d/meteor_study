@@ -18,25 +18,26 @@ Meteor.addMsgLog = function (name,msg) {
 
 }
 
+//서버측에서 발행한 내용에 대한 구독을 꼭 해주어야한다.
+
 Meteor.startup(function () {
   console.log('start app');
-
+  //미티어 전역에서 구독
+  Meteor.subscribe('msgLog/list');
 });
 
-//서버측에서 발행안 내용에 대한 구독을 꼭 해주어야한다.
-//미티어 전역에서 구독
-Meteor.subscribe('msgLog/list');
 
 Template.main.onCreated(function () {
   //탬플리트 단위로 구독
   //this.subscribe('msgLog/list');
   console.log(this)
-
 });
 
 Template.main.helpers({
-  "msgLogSubcribe" : function () {
-    return msgLog.find().fetch();
+  "getMsgLogList" : function () {
+//collections.js 에서 MsgLog 선언된것을 사용함.
+    //fetch를 사용하면 안된다.
+    return MsgLog.find();
   }
 
 });
