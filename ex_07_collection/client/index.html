@@ -1,6 +1,11 @@
 <head>
   <title>exam 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
 </head>
 
 
@@ -12,15 +17,21 @@
 
 <template name="main">
   <form id="addMsg" name="addMsg">
-    <label for="addMsg"></label>
-    <input type="text">
+    <label for="msgText"></label>
+    <input type="text" id="msgText" name="msgText">
 
     <button type="submit" >ok</button>
   </form>
 
   <ul>
     {{#each getMsgLogList}}
-      <li>{{msg}}</li>
+      <li>
+        <div>{{msg}}</div>
+        <div class="hide input-{{_id}}" > <input > <button class="btn-update-ok" >ok</button></div>
+        <div>
+          <button class="btn-update" >수정</button><button class="btn-del">삭제</button>
+        </div>
+      </li>
     {{/each}}
   </ul>
 

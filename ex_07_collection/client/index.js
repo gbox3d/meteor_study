@@ -42,6 +42,50 @@ Template.main.helpers({
 
 });
 
+Template.main.events({
+  "click .btn-update"(evt,instance) {
+    console.log(instance);
+    console.log(this);
+
+    instance.$('.input-'+this._id).removeClass('hide')
+
+    instance.$('.input-'+ this._id + ' input').val(this.msg)
+
+  },
+  "click .btn-update-ok"(evt,instance) {
+    console.log(instance);
+    console.log(this);
+
+
+    Meteor.call('msgLog/update',{
+      _id : this._id,
+      msg : instance.$('.input-'+ this._id + ' input').val()
+    })
+    instance.$('.input-'+this._id).addClass('hide')
+
+  },
+  "click .btn-del"(evt,instance) {
+    console.log('del ' + this._id)
+    Meteor.call('msgLog/remove',{_id:this._id});
+  },
+  "submit #addMsg"(evt,instance) {
+
+    try {
+
+      Meteor.call('msgLog/add',{msg : evt.target.msgText.value})
+
+    }
+    catch (e){
+      console.log(e)
+    }
+
+    evt.preventDefault()
+
+  }
+
+});
+
+
 
 
 
