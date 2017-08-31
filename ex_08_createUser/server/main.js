@@ -28,6 +28,4 @@ Meteor.startup(()=> {
   else {
     createAdmin();
   }
-
-
 });
