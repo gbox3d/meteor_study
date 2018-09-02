@@ -7,6 +7,7 @@ FlowRouter.route('/', {
   }
 });
 
+// 'http://주소/detail' 에 대한 라우터 정의
 FlowRouter.route('/detail', {
   name:'detail',
   action: function () {
