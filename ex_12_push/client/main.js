@@ -16,7 +16,11 @@ Template.main.onCreated(function () {
     changed(id,fileds) {
 
       console.log('observe change ' + id)
-      console.log(fileds);
+      console.log(fileds); //변한 필드만 추가됨
+
+      console.log(Ticker.findOne({_id:id})) //모든 필드 보기
+
+
     }
   })
 
