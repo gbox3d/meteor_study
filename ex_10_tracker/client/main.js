@@ -6,6 +6,7 @@ import './main.html';
 
 Template.info.onCreated(function () {
 
+  //처음엔 all 로
   this.className = new ReactiveVar('all');
 
 
