@@ -4,6 +4,11 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 
+/*
+이 예제는 정해진 클래스선택하면 그때마다 리스트를 갱신하는 예제이다.
+
+ */
+
 Template.info.onCreated(function () {
 
   //처음엔 all 로
