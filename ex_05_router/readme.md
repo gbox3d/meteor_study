@@ -14,10 +14,11 @@ http://localhost:3000/master
 위의 내용은 'master' 라는 이름의 라우터를 사용한 예이다.
 
 
-플로우라우터 설치
+플로우라우터 사용하려면 두가지 패키지가 필요하다.
 
 ```shell 
 meteor add kadira:flow-router
+meteor add kadira:blaze-layout
 
 ``` 
 
