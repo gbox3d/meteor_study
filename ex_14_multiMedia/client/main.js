@@ -21,7 +21,7 @@ Template.hello.onCreated(function helloOnCreated() {
     this.msg.set( 'this browser support webkitAudioContext ');
 
     this.bufferLoader = new BufferLoader(this.context, [
-        './sounds/katusha.mp3', './sounds/hit1.wav'],
+        '/sounds/katusha.mp3', '/sounds/hit1.wav'],
        (_bufferList)=> {//로딩이 모두 완료 되면...
         this.msg.set( 'load ok' );
         // Create two sources and play them both together.
