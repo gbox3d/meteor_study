@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import '../lib/collection'
 
 
-
-
 Meteor.startup(() => {
   // code to run on server at startup
 
@@ -27,30 +25,30 @@ Meteor.startup(() => {
   }
 
 
+
   function _loop() {
 
-    let tick_cursor = Ticker.find({name:'tick'});
 
+    let tick_cursor = Ticker.find({name:'tick'});
     Ticker.update({name:'tick'},{$set:{val:  tick_cursor.fetch()[0].val + 1 }})
 
     let tack_cursor = Ticker.find({name:'tack'});
-
     Ticker.update({name:'tack'},{$set:{val:  tack_cursor.fetch()[0].val + 1 }})
+
 
     Meteor.setTimeout(_loop,3000);
 
-    console.log(tick_cursor.fetch())
-    console.log(tack_cursor.fetch())
+    //console.log(tick_cursor.fetch())
+    //console.log(tack_cursor.fetch())
 
   }
+
   _loop()
 
-
-
 });
+
 
 
 Meteor.publish('Ticker/core', function (ticker_name) {
   return Ticker.find({name : ticker_name});
 })
-
