@@ -3,3 +3,4 @@ Meteor.publish('msgLog/list',
     return MsgLog.find({})
   }
 );
+
