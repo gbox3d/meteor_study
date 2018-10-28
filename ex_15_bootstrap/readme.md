@@ -33,7 +33,7 @@ main.js 에서 모듈 임포팅
 require('bootstrap')
 ```
 
-##참고 자료 
+### 참고 자료 
 
 https://medium.com/@g1zmo/bootstrap-4-and-meteor-js-4cec073a4f6c
 
