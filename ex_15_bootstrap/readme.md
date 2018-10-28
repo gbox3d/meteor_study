@@ -16,9 +16,11 @@ meteor add fourseven:scss
 meteor add seba:minifiers-autoprefixer
 ```
 
-부트스트랩 설치 
+부트스트랩과 추가모듈 설치 설치 
 ```
  meteor npm install bootstrap --save
+ 
+ meteor npm install --save jquery popper.js
 ```
 
 client 측에( /client/main.scss ) main.scss 생하고 다음과 같이 작성
