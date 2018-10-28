@@ -1,0 +1,11 @@
+{
+  "public" : {
+    "version" : "100",
+    "name" : "collection sample"
+
+  },
+  "private" : {
+    "passwd" : 2288
+  }
+
+}

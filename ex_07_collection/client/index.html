@@ -16,17 +16,27 @@
 </body>
 
 <template name="main">
-  <form id="addMsg" name="addMsg">
-    <label for="msgText"></label>
-    <input type="text" id="msgText" name="msgText">
 
+  <h1>
+    {{getSetting.public.name}}
+  </h1>
+
+  <form id="addMsg" name="addMsg">
+    <label for="msgText">메시지 입력 :</label>
+    <input type="text" id="msgText" name="msgText">
+    <button type="submit" >ok</button>
+  </form>
+
+  <form id="setLimit" name="setLimit">
+    <label for="inputLimit">목록 갯수 조정 : </label>
+    <input type="text" id="inputLimit" name="inputLimit" value="10">
     <button type="submit" >ok</button>
   </form>
 
   <ul>
     {{#each getMsgLogList}}
       <li>
-        <div>{{msg}}</div>
+        <div> {{_id}} ,{{msg}} , {{createdAt}}</div>
         <div class="hide input-{{_id}}" > <input > <button class="btn-update-ok" >ok</button></div>
         <div>
           <button class="btn-update" >수정</button><button class="btn-del">삭제</button>
