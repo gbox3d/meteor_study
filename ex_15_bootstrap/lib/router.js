@@ -32,3 +32,15 @@ FlowRouter.route('/gridSample', {
 
 
 
+FlowRouter.route('/modalSample', {
+  name:'modalSample',
+  action: function () {
+    BlazeLayout.render('layout',
+      {
+        layout : "modalSample"
+      });
+  }
+});
+
+
+
