@@ -1,7 +1,11 @@
+const moment = require('moment')
 //서버측에서 발행한 내용에 대한 구독을 꼭 해주어야한다.
+
+
 
 let handlerMsgLog
 Meteor.startup(function () {
+
   console.log('start app');
   //미티어 전역에서 구독
   handlerMsgLog = Meteor.subscribe('msgLog/list',{_limit:10});
@@ -12,6 +16,12 @@ Template.main.onCreated(function () {
   //탬플리트 단위로 구독
   //this.subscribe('msgLog/list');
   console.log(this)
+
+  // console.log(moment().format())
+  // console.log(moment().valueOf())
+  // console.log(new Date(moment()))
+  // console.log(moment().toISOString())
+
 });
 
 Template.main.helpers({

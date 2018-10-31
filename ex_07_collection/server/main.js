@@ -14,7 +14,11 @@ Meteor.startup(function () {
 Meteor.publish('msgLog/list',
   function ({_limit}) {
   console.log(_limit)
-    return MsgLog.find({},
+    return MsgLog.find({
+
+        createdAt : {$gt : new Date(moment('2018-10-29 09:00')) }
+
+      },
       {
         sort : {
           createdAt : -1 // 최신것 부터 받아가기
