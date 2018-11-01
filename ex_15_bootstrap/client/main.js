@@ -6,8 +6,6 @@ import './main.html';
 import './layout.html'
 import '../lib/router'
 
-require('bootstrap')
-
 import './view/grid/core'
 import './view/input/core'
 import './view/modal/core'
