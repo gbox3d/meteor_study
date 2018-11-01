@@ -1,10 +1,8 @@
 /*Posts = new Meteor.Collection(
-  'Posts',
-  {connection:null}
+  'Posts'
 );
 */
 
 Posts = new Mongo.Collection(
-  'Posts',
-  {connection:null}
+  'Posts'
 );

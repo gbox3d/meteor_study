@@ -1,25 +1,23 @@
 import { Meteor } from 'meteor/meteor';
-
-
-import '../lib/collections'
+// import '../lib/collections'
 
 Meteor.startup(() => {
   // code to run on server at startup
 });
 
+
+let intervalHandler
+
 Meteor.publish("posts/push", function() {
 
+  //console.log(this)
 
-  //return Posts.find({})
+  if(intervalHandler !== null) Meteor.clearInterval(intervalHandler)
 
 
-  Meteor.setInterval(()=> {
-
+  intervalHandler = Meteor.setInterval(()=> {
     //console.log(Random)
-
     console.log('add')
-
-
 
     this.added("Posts",Random.id(), {
       message: 'hi',
@@ -27,8 +25,7 @@ Meteor.publish("posts/push", function() {
     })
 
 
-  },3000)
-
+  },2000)
 
   this.ready();
 
