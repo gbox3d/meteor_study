@@ -1,0 +1,27 @@
+<head>
+  <title>ex 01</title>
+
+  <meta charset="utf-8" />
+  <!-- 모바일용웹 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- 안드로이드 홈화면추가시 상단 주소창 제거 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="/img/favicon.ico">
+  <!-- ios홈화면추가시 상단 주소창 제거 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+
+</head>
+
+<body style="margin: 0px;">
+{{>main}}
+</body>
+
+<template name="main">
+
+  {{test_spacebars}}
+  {{{test_spacebars}}}
+  <button class="test1"> test 1 </button>
+
+</template>
