@@ -5,6 +5,9 @@ Meteor.startup(function () {
 
 });
 
+Template.main.onCreated( function () {
+
+})
 
 
 Template.main.events({
