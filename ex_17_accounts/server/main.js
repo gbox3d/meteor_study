@@ -35,6 +35,7 @@ Meteor.methods({
 
 })
 
+//이밴트 핸들러 지정
 Accounts.onCreateUser(function (options, user) {
 
   console.log("create user ")
@@ -61,6 +62,7 @@ Accounts.onCreateUser(function (options, user) {
 
 });
 
+//가입확인 메일 커스터 마이징
 Accounts.emailTemplates.siteName = "account sample";
 Accounts.emailTemplates.from     = "admin <admin@gmail.com>"; // 보내는 주소 정보
 // 가입확인 메일
