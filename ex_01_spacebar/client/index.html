@@ -20,8 +20,28 @@
 
 <template name="main">
 
-  {{test_spacebars}}
-  {{{test_spacebars}}}
+  <div>
+    {{test_spacebars}}
+  </div>
+
+  <div>
+    {{{test_spacebars}}}
+  </div>
+
+
   <button class="test1"> test 1 </button>
+
+  <div>
+    {{test_array.[0]}},{{test_array.[1]}}
+  </div>
+
+  {{#each eachTest}}
+    <div>{{name}}</div>
+  {{/each}}
+
+  <div>
+    {{eachTest.[0].name}},{{eachTest.[1].name}}
+
+  </div>
 
 </template>

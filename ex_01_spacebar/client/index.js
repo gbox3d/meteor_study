@@ -1,4 +1,8 @@
+
+
 rtVal = new ReactiveVar();
+arrayTest = new ReactiveVar(['ios','android']);
+eachTest = new ReactiveVar([{name:'alpha'},{name:'beta'}])
 
 Meteor.startup(function () {
   rtVal.set("<h1> hi </h1>");
@@ -19,8 +23,14 @@ Template.main.events({
 });
 
 Template.main.helpers({
-  test_spacebars() {
+  "test_spacebars"() {
     return rtVal.get();
+  },
+  "test_array"() {
+    return arrayTest.get()
+  },
+  "eachTest"() {
+    return eachTest.get()
   }
 
 });
