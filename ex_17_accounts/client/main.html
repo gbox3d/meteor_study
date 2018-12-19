@@ -2,77 +2,30 @@
   <title>ex_17_accounts</title>
 </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
-  {{> info}}
-  <!--{{>accountTest}}-->
 
-</body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template>
-
-<template name="layout">
-
-  {{> Template.dynamic template=layout}}
-
-</template>
-
-<template name="accountTest">
-  <div style="border: 1px solid black" id="createForm" >
-    <div> 이름 : <input name="userName"  value="gbox3d"> </div>
-    <div> 암호 : <input name="userPasswd" value="1234" > </div>
-    <div> 이메일 : <input name="userEmail" value="gbox3d@gmail.com" > </div>
-    <div> 직업 : <input name="userJob" value="programmer" > </div>
-
-    <button name="ok" > ok </button>
-
-  </div>
-
+<template name="home">
   <div style="border: 1px solid black" id="loginForm" >
-    <div> 이름 : <input name="userName"  value="gbox3d"> </div>
-    <div> 암호 : <input name="userPasswd" value="1234" > </div>
+    <div> 이름 : <input name="userName"  value=""> </div>
+    <div> 암호 : <input name="userPasswd" value="" > </div>
 
     {{#if currentUser}}
       <button name="logout" > logout </button>
       <div>{{currentUser.username}} 님 환영 해요. 당신 직업은 {{currentUser.profile.job}}</div>
-      {{#if currentUser.emails.[0].verified}} 인증 완료.
+      {{#if currentUser.emails.[0].verified}}
+        <div>인증 완료.</div>
       {{else}}
-        <p>미 인증</p>
-        <button name="emailValified" >인증메일 보내기</button>
+        <div>
+          <p>미 인증</p>
+          <button name="emailValified" >인증메일 보내기</button>
+        </div>
       {{/if}}
     {{else}}
       <button name="login" > login </button>
+      <button name="register" > register </button>
+      <button name="resetPasswd" > reset password </button>
     {{/if}}
-  </div>
-
-</template>
-
-<template name="test">
-
-  <h1>test page </h1>
-
-</template>
-
-<template name="emailValified">
-
-  <div>
-    인증코드 : {{valifiedMsg.token}}
-    결과 : {{valifiedMsg.result}}
   </div>
 
 </template>
