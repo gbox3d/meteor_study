@@ -9,6 +9,7 @@ import './layout.html'
 import './createAcount'
 import './emailValified'
 import './resetPasswd'
+import './recoverPasswd'
 
 
 
@@ -59,7 +60,7 @@ Template.home.events({
     FlowRouter.go('/createAcount');
   },
   "click button[name=resetPasswd]"() {
-    FlowRouter.go('/resetPasswd');
+    FlowRouter.go('/recoverPasswd');
   }
 })
 
