@@ -49,6 +49,8 @@ Roles.addUsersToRoles(_Id, [ 'king' ])
 
 ### 2 이메일 인증받기
 
+1. 탬플릿정의   
+
 emailTemplates 의 verifyEmail가지고 서버측에서 인증메일 형식을 정의한다.
 ```js
 
@@ -75,11 +77,15 @@ Accounts.emailTemplates.verifyEmail = {
 }
 
 ```
+2. 인증요청  
 
-인증메일을 요청하는 sendVerificationEmail 함수는 클라이언트 측에서 호출한다.
+인증메일을 요청하는 sendVerificationEmail 함수는 서버 측에서 호출한다.
 ```js
 Accounts.sendVerificationEmail( 인증받을계정이름 )
 ```
+
+3. 인증토큰 받아서 처리하기  
+
 다음과 같은 형식으로 인증 토큰을 받을 링크가 이메일로 보내진다.
 
 ```
@@ -137,7 +143,7 @@ FlowRouter.route( '/verify-email/:token', {
 
 #### 정리  
 
-템플릿설정(서버) -> 인증메일 보내기 (클라이언트) -> 인증 토큰을 url 받아 처리하기 (클라이언트)
+템플릿설정(서버) -> 인증메일 보내기 (서버) -> 인증 토큰을 url 받아 처리하기 (클라이언트)
 
 ### 3 비밀번호 재설정
 
