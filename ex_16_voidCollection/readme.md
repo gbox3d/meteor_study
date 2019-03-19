@@ -16,3 +16,6 @@ Posts = new Mongo.Collection(
 ```
 
 
+#### 참고  
+https://github.com/acidsound/serialbot
+
