@@ -1,3 +1,4 @@
+import './detail.html'
 Template.detail.onCreated(function () {
   console.log(FlowRouter.current())
 })

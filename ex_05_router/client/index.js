@@ -1,3 +1,5 @@
+import './index.html'
+
 Template.index.events({
   "click #btn-go-test"() {
 
