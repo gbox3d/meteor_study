@@ -1,5 +1,5 @@
 <head>
-  <title>ex 01</title>
+  <title>ex 01 spacebar</title>
 
   <meta charset="utf-8" />
   <!-- 모바일용웹 -->
@@ -31,17 +31,25 @@
 
   <button class="test1"> test 1 </button>
 
+  <h2> access array 1 </h2>
   <div>
     {{test_array.[0]}},{{test_array.[1]}}
   </div>
 
+  <h2> access array 2 </h2>
+  <div>
+    {{eachTest.[0].name}},{{eachTest.[1].name}}
+  </div>
+
+  <h2> each test </h2>
   {{#each eachTest}}
     <div>{{name}}</div>
   {{/each}}
 
-  <div>
-    {{eachTest.[0].name}},{{eachTest.[1].name}}
-
-  </div>
+  <h2> with test </h2>
+  {{#with withTest}}
+    <div> name : {{name}} </div>
+    <div> call : {{call}} </div>
+  {{/with}}
 
 </template>

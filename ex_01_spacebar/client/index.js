@@ -1,12 +1,13 @@
 
+import './index.html'
 
-rtVal = new ReactiveVar();
-arrayTest = new ReactiveVar(['ios','android']);
-eachTest = new ReactiveVar([{name:'alpha'},{name:'beta'}])
+let rtVal = new ReactiveVar();
+let arrayTest = new ReactiveVar(['ios','android']);
+let eachTest = new ReactiveVar([{name:'alpha'},{name:'beta'}])
+let withTest = new ReactiveVar({name:'atholf',call:'123456'})
 
 Meteor.startup(function () {
   rtVal.set("<h1> hi </h1>");
-
 });
 
 Template.main.onCreated( function () {
@@ -31,6 +32,9 @@ Template.main.helpers({
   },
   "eachTest"() {
     return eachTest.get()
+  },
+  "withTest"() {
+    return withTest.get();
   }
 
 });
