@@ -22,9 +22,8 @@ meteor add kadira:blaze-layout
 
 ``` 
 
-플로우라우터를 사용하는 프로잭트의 클라이언트는 layout.html 을 기반으로(이미 정해져있다.) 시작된다.  
-기존에 했던 것처럼 index.html 에서 head와 body 를 따로 관리할 필요없다.
-layout.html 은 아래와 같다.
+
+라우터 탬플릿을 정의한다. layout.html 은 아래와 같다.
 ```html
 <template name="layout">
   {{> header}}
@@ -32,8 +31,7 @@ layout.html 은 아래와 같다.
   {{> footer}}
 </template>
 ```
-플라워라이터는 기본적으로 layout.html 과 layout.js 를 참조한다.
-
+위 예제에서는 레이아웃에 header footer 탬플릿을 추가 하였다. 
 FlowRouter.route 함수로 정의한 내용은 {{>Template.dynamic ..} 에 적용된다.  
 따라서 라우터를 사용할때는 router.js 파일에서 layout이라고 정한 템플릿이 가장 첫 화면을 구성하는 요소이다. 
 
@@ -51,7 +49,7 @@ FlowRouter.route('/', {
 
 ```
 
-위코드의 의미는 라우터 / 는 이름이 index 이고 layout 템플릿에 랜더링하는데 index 탬플릿이 사용된다는 뜻이다.
+위코드의 의미는 라우터 '/' 는 이름이 index 이고 layout 템플릿에 랜더링하는데 index 탬플릿이 사용된다는 뜻이다.
 index 탬플릿은 index.html 에 다음과 같이 정의 되어있다.
 
 ```html
@@ -61,4 +59,35 @@ index 탬플릿은 index.html 에 다음과 같이 정의 되어있다.
   <button id="btn-go-test"> go param test </button>
 </template>
 ```
+
+go 함수로 원하는 페이지로 이동한다.  
+```js
+FlowRouter.go('/');
+
+```
+
+파라메터 전당은 다음과 같이 할수있다.  
+```js
+let path = FlowRouter.path("detail", {id:"any"}, {
+      param1 : "heloo",
+      param2 : {p1:1,p2:"world"}
+    })
+    
+    FlowRouter.go(path)
+```
+
+전달된 파라메터는 current로 받아볼수있다.
+```js
+
+Template.detail.helpers({
+  "queryParams"(){
+    return FlowRouter.current().queryParams;
+  },
+  "Params"() {
+    return FlowRouter.current().params;
+  }
+
+})
+```
+
 
