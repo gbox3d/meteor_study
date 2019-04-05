@@ -9,6 +9,6 @@ import './index'
 import './master'
 import './detail'
 
-
-
-console.log('start client')
+Meteor.startup(function () {
+  console.log('start client')
+});
