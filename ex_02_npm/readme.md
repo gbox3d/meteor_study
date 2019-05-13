@@ -3,7 +3,9 @@
 ### 1. 부트스트랩을 npm으로 설치하여 미티어에서 사용해보기
 
 1) 부트스트랩 설치
+```bash
 npm install bootstrap
+```
 
 2) 필요 모듈 설치
 
@@ -28,12 +30,28 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 ```
 
+### 2. async 사용하기
+
+npm 설치  
+```bash
+meteor npm install async
+```
+
+모듈 불러오기
+```js
+const async = require('async')
+//또는 
+import async from 'async'
+
+```
 
 
 
 
+### 참고  
+미디어 문서   
+https://guide.meteor.com/using-npm-packages.html
 
-참고  
-
+부트스트랩 연동하기질문  
 https://forums.meteor.com/t/how-to-add-bootstrap-4-in-meteor-blaze/42208  
 
