@@ -66,12 +66,18 @@ FlowRouter.go('/');
 
 ```
 
-파라메터 전당은 다음과 같이 할수있다.  
+파라메터를 다음과 같이 전달할 수 있다.    
+단 파라메터를 3개 모두 넘겨주어야 값이 제데로 나온다.
 ```js
-let path = FlowRouter.path("detail", {id:"any"}, {
-      param1 : "heloo",
-      param2 : {p1:1,p2:"world"}
-    })
+let path = FlowRouter.path(
+  "detail", 
+  {
+    id:"any"
+  }, 
+  {
+    param1 : "heloo",
+    param2 : {p1:1,p2:"world"}
+  })
     
     FlowRouter.go(path)
 ```
