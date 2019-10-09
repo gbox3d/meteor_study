@@ -10,9 +10,16 @@
 </body>
 
 <template name="hello">
-  <button class="btn-block btn btn-primary" type="button" >Click Me</button>
+  <button class="btn-block btn btn-primary" type="button" name="count" >Click Me</button>
+  <button class="btn-block btn btn-primary" type="button" name="scr-capture" > screen capture </button>
   <p>You've pressed the button {{counter}} times.</p>
   <p> {{asyncTestMsg}} </p>
+
+  <canvas name="output" height="256" width="256" style="border: solid 1px black;" >
+
+  </canvas>
+
+
 </template>
 
 <template name="info">

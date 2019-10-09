@@ -5,6 +5,8 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 const async = require('async')
 // import async from 'async'
 
+import html2canvas from "html2canvas";
+
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
@@ -38,6 +40,9 @@ Template.hello.onCreated(function helloOnCreated() {
 
     })
 
+
+  // console.log(html2canvas)
+
 });
 
 Template.hello.helpers({
@@ -51,8 +56,20 @@ Template.hello.helpers({
 });
 
 Template.hello.events({
-  'click button'(event, instance) {
+  'click button[name=count]'(event, instance) {
     // increment the counter when button is clicked
     instance.counter.set(instance.counter.get() + 1);
   },
+  'click button[name=scr-capture]'(event, instance) {
+    html2canvas(document.body).then(_=> {
+      console.log(_)
+      let destCtx = document.querySelector('canvas[name=output]').getContext('2d');
+
+
+//call its drawImage() function passing it the source canvas directly
+      destCtx.drawImage(_, 0, 0,256,256);
+
+    });
+
+  }
 });
