@@ -12,19 +12,24 @@ MsgLog = new Mongo.Collection('msgLog')
 
 다음과 같이 서버측에서 콜렉숀을 발행한다.  
 ```js
+//콜랙션 발간
 Meteor.publish('msgLog/list',
-  function ({_limit}) {
-  
-    return MsgLog.find(
-      {}, // 검색 조건
-      {
-        sort : {
-          createdAt : -1 // 최신것 부터 받아가기
-        },
-        limit:_limit //갯수 지정
-      })
-  }
-)
+    function ({_limit,skip}) {
+      console.log(_limit)
+      return MsgLog.find({
+
+            createdAt : {$gt : new Date(moment('2018-10-29 09:00')) }
+
+          },
+          {
+            sort : {
+              createdAt : -1 // 최신것 부터 받아가기
+            },
+              limit:_limit, //갯수 지정
+              skip : skip //건너뛰기
+          })
+    }
+);
 ```
 
 이와 같이 클라이언트측에서 구독한다. 첫번째인자는 구독이름 이고 두번째 인자는 구독에 넘겨줄 인자 오브잭트이다.

@@ -25,7 +25,7 @@ Meteor.publish('msgLog/list',
               createdAt : -1 // 최신것 부터 받아가기
             },
               limit:_limit, //갯수 지정
-              skip : skip
+              skip : skip //건너뛰기
           })
     }
 );
