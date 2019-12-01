@@ -1,11 +1,11 @@
 <head>
-  <title>exam 2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    .hide {
-      display: none;
-    }
-  </style>
+    <title>exam 7 collection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 
 
@@ -17,33 +17,38 @@
 
 <template name="main">
 
-  <h1>
-    {{getSetting.public.name}}
-  </h1>
+    <h1>콜랙션 샘플</h1>
 
-  <form id="addMsg" name="addMsg">
-    <label for="msgText">메시지 입력 :</label>
-    <input type="text" id="msgText" name="msgText">
-    <button type="submit" >ok</button>
-  </form>
-
-  <form id="setLimit" name="setLimit">
-    <label for="inputLimit">목록 갯수 조정 : </label>
-    <input type="text" id="inputLimit" name="inputLimit" value="10">
-    <button type="submit" >ok</button>
-  </form>
-
-  <ul>
-    {{#each getMsgLogList}}
-      <li>
-        <div> {{_id}} ,{{msg}} , {{createdAt}}</div>
-        <div class="hide input-{{_id}}" > <input > <button class="btn-update-ok" >ok</button></div>
+    <form id="setLimit" name="setLimit">
         <div>
-          <button class="btn-update" >수정</button><button class="btn-del">삭제</button>
+            <label for="inputLimit">목록 갯수 조정 : </label>
+            <input type="text" id="Limit" name="inputLimit" value="5">
         </div>
-      </li>
-    {{/each}}
-  </ul>
+        <div>
+            <label for="inputLimit">skip : </label>
+            <input type="text" id="Skip" name="inputLimit" value="0">
+        </div>
+        <button type="submit" >ok</button>
+    </form>
+
+    <ul>
+        {{#each getMsgLogList}}
+            <li>
+                <div> {{_id}} ,{{msg}} , {{createdAt}}</div>
+                <div class="hide input-{{_id}}" > <input > <button class="btn-update-ok" >ok</button></div>
+                <div>
+                    <button class="btn-update" >수정</button><button class="btn-del">삭제</button>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+
+    <form id="addMsg" name="addMsg">
+        <label for="msgText">메시지 입력 :</label>
+        <input type="text" id="msgText" name="msgText">
+        <button type="submit" >ok</button>
+    </form>
+
 
 
 </template>
