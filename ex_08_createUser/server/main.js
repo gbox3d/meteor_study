@@ -1,3 +1,45 @@
+
+Meteor.methods({
+  "users/createUser"({username, password, profile, roles}) {
+
+    try {
+
+      let _id = Accounts.createUser({
+        username: username,
+        password: password
+      });
+
+
+      console.log(_id)
+      Roles.addUsersToRoles(_id, roles)
+
+      console.log(username,password,roles);
+
+      return {err:false}
+
+    }
+    catch(e) {
+
+      console.log(e.error)
+
+      throw e
+
+    }
+  }
+});
+
+Meteor.publish('users/admin/userList/all', function() {
+
+  if(Roles.userIsInRole(this.userId,["admin","developer"])) {
+    console.log(`${this.userId}  acces all user `)
+    return Meteor.users.find({});
+  }
+  else {
+    throw Meteor.error;
+    console.log('u not admin');
+  }
+});
+
 function createAdmin() {
   console.log('관리자를 생성합니다')
   var adminId = Accounts.createUser({
@@ -12,11 +54,6 @@ function createAdmin() {
 
 }
 
-Meteor.methods({
-  "users/createUser"({username, password, profile, roles}) {
-    console.log(this);
-  }
-});
 
 Meteor.startup(()=> {
   console.log('start server');

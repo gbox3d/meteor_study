@@ -6,7 +6,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
-    "babel-runtime": "^6.26.0",
     "meteor-node-stubs": "~0.2.4"
   },
   "meteor": {

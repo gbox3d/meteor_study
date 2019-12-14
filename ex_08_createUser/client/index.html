@@ -1,6 +1,6 @@
 <head>
-  <title>exam 2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>exam 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 
@@ -11,6 +11,44 @@
 </body>
 
 <template name="main">
+
+
+    <p> - new user -  </p>
+    <form name="create-user">
+        <div>
+            id : <input id="id">
+            passwd : <input id="passwd">
+            role : <input id="roles" value="newbee">
+        </div>
+        <div>
+            <button> ok </button>
+        </div>
+    </form>
+
+    {{#if currentUser}}
+
+        <p> current user : {{currentUser.username}} </p>
+        <form name="edit-user">
+            <div>
+                <button name="edit">edit</button>
+                <button name="logout">logout</button>
+            </div>
+        </form>
+
+
+    {{else}}
+        <p> - login user -  </p>
+        <form name="login-user">
+            <div>
+                id : <input id="id">
+                passwd : <input id="passwd">
+            </div>
+            <div>
+                <button> ok </button>
+            </div>
+        </form>
+    {{/if}}
+
 
 
 </template>
