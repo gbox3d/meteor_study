@@ -1,7 +1,10 @@
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import './index.html'
 
 let rtVal = new ReactiveVar();
+let _iftest = new ReactiveVar();
 let arrayTest = new ReactiveVar(['ios','android']);
 let eachTest = new ReactiveVar([{name:'alpha'},{name:'beta'}])
 let withTest = new ReactiveVar({name:'atholf',call:'123456'})
@@ -10,14 +13,24 @@ Meteor.startup(function () {
   rtVal.set("<h1> hi </h1>");
 });
 
+
+
 Template.main.onCreated( function () {
 
 })
 
 
 Template.main.events({
-  'click .test1' (evt) {
-    rtVal.set('<h2>hello</h2>');
+  'submit form[name=testform]' (evt,instance) {
+
+    console.log(evt.target.testval.value)
+
+    _iftest.set(evt.target.testval.value)
+    rtVal.set(`<h2>${evt.target.testval.value}</h2>`);
+    evt.preventDefault();
+  },
+  'click form[name=testform] [name=cancel]'(evt) {
+    console.log(evt.target)
     evt.preventDefault();
   }
 
@@ -26,6 +39,9 @@ Template.main.events({
 Template.main.helpers({
   "test_spacebars"() {
     return rtVal.get();
+  },
+  "equalTo"(a) {
+    return a === _iftest.get()
   },
   "test_array"() {
     return arrayTest.get()

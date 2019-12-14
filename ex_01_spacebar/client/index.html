@@ -1,16 +1,15 @@
 <head>
-  <title>ex 01 spacebar</title>
+    <title>ex 01 spacebar</title>
 
-  <meta charset="utf-8" />
-  <!-- 모바일용웹 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- 안드로이드 홈화면추가시 상단 주소창 제거 -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" href="/img/favicon.ico">
-  <!-- ios홈화면추가시 상단 주소창 제거 -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" href="/img/favicon.ico">
-
+    <meta charset="utf-8" />
+    <!-- 모바일용웹 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 안드로이드 홈화면추가시 상단 주소창 제거 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" href="/img/favicon.ico">
+    <!-- ios홈화면추가시 상단 주소창 제거 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
 
 </head>
 
@@ -20,36 +19,58 @@
 
 <template name="main">
 
-  <div>
-    {{test_spacebars}}
-  </div>
+    <div>
+        {{test_spacebars}}
+    </div>
 
-  <div>
-    {{{test_spacebars}}}
-  </div>
+    <div>
+        {{{test_spacebars}}}
+    </div>
 
 
-  <button class="test1"> test 1 </button>
+    <form name="testform">
+        <label> cast one just red,blue,green </label>
+        <div>
+            <input id="testval" value="yo~" >
+        </div>
 
-  <h2> access array 1 </h2>
-  <div>
-    {{test_array.[0]}},{{test_array.[1]}}
-  </div>
+        <div>
+            <button name="ok"> ok </button>
+            <button name="cancel"> cancel </button>
+        </div>
+    </form>
 
-  <h2> access array 2 </h2>
-  <div>
-    {{eachTest.[0].name}},{{eachTest.[1].name}}
-  </div>
+    <div name="resultbox">
+        {{#if equalTo  "red" }}
+            <div style="background-color: red"></div>
+        {{else if equalTo "blue"}}
+            <div style="background-color: blue"></div>
+        {{else if equalTo "green"}}
+            <div style="background-color: green"></div>
+        {{else}}
+            <div style="background-color: gray"></div>
+        {{/if}}
+    </div>
 
-  <h2> each test </h2>
-  {{#each eachTest}}
-    <div>{{name}}</div>
-  {{/each}}
+    <h2> access array 1 </h2>
+    <div>
+        {{test_array.[0]}},{{test_array.[1]}}
+    </div>
 
-  <h2> with test </h2>
-  {{#with withTest}}
-    <div> name : {{name}} </div>
-    <div> call : {{call}} </div>
-  {{/with}}
+    <h2> access array 2 </h2>
+    <div>
+        {{eachTest.[0].name}},{{eachTest.[1].name}}
+    </div>
+
+    <h2> each test </h2>
+    {{#each eachTest}}
+        <div>{{name}}</div>
+    {{/each}}
+
+    <h2> with test </h2>
+    {{#with withTest}}
+        <div> name : {{name}} </div>
+        <div> call : {{call}} </div>
+    {{/with}}
 
 </template>
