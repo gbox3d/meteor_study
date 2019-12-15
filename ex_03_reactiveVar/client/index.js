@@ -5,7 +5,6 @@ import './index.html'
 
 const msg_rctVar = new ReactiveVar();
 const msg_rctVar2 = new ReactiveVar();
-
 const msg_nonReactiveVar = 'hello normal';
 
 Template.main.onCreated(function () {
@@ -21,6 +20,9 @@ msg_rctVar2 가 내용이 바뀌면 output_msg, msg2 헬퍼함수가 모두 재�
  */
 
 Template.main.helpers({
+  "transSome"(a) {
+    return `<${a}>`;
+  },
   output_msg () {
     console.log('output_msg');
     let _r =  `${msg_rctVar.get()} + ${ msg_rctVar2.get()}`;

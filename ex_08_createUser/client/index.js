@@ -1,6 +1,25 @@
 import "./index.html"
+
+
+
 Meteor.startup(function () {
     console.log('start app');
+
+    if(Meteor.userId()) {
+        //현제 로그인된 사용자 아이디
+        console.log(Meteor.userId())
+    }
+    else {
+        console.log('user not login')
+    }
+
+
+    //네트웍에서 로그인 데이터를 모두 받으면...
+    Meteor.users.find().observeChanges({
+        added(id,fileds) {
+            console.log(Meteor.user())
+        }
+    })
 
 });
 
