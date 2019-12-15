@@ -6,7 +6,7 @@ import './index.html'
 let rtVal = new ReactiveVar();
 let _iftest = new ReactiveVar();
 let arrayTest = new ReactiveVar(['ios','android']);
-let eachTest = new ReactiveVar([{name:'alpha'},{name:'beta'}])
+let eachTest = new ReactiveVar([{name:'alpha',color:1},{name:'beta',color:2},{name:'gama',color:3}])
 let withTest = new ReactiveVar({name:'atholf',call:'123456'})
 
 Meteor.startup(function () {
@@ -45,6 +45,20 @@ Template.main.helpers({
       return rtVal.get()
     else if(val_name === "_iftest")
       return _iftest.get();
+  },
+  "getColor"(_item) {
+
+    switch(_item.color) {
+      case 1:
+        return "red";
+      case 2:
+        return "blue";
+      case 3:
+        return "green";
+      default:
+        return "gray"
+    }
+
   },
   "equalTo"(a,b) {
     return a === b

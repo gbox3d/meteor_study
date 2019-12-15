@@ -67,6 +67,18 @@
         <div>{{name}}</div>
     {{/each}}
 
+    <h2> each in test </h2>
+    {{#each item in eachTest}}
+        {{#if equalTo (getColor item) "red"}}
+            <div style="background-color: red; color : yellow;width: 48px;" >{{item.name}}</div>
+        {{else if equalTo (getColor item) "blue"}}
+            <div style="background-color: blue; color: white; width: 64px;" >{{item.name}}</div>
+        {{else if equalTo (getColor item) "green"}}
+            <div style="background-color: green; color: yellow; width: 96px; " >{{item.name}}</div>
+        {{/if}}
+    {{/each}}
+
+
     <h2> with test </h2>
     {{#with withTest}}
         <div> name : {{name}} </div>
