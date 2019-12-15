@@ -62,11 +62,15 @@
         {{eachTest.[0].name}},{{eachTest.[1].name}}
     </div>
 
+    //참고 자료
+    //https://stackoverflow.com/questions/24225071/how-can-i-get-the-index-of-an-array-in-a-meteor-template-each-loop
     <h2> each test </h2>
     {{#each eachTest}}
-        <div>{{name}}</div>
+        <div> index : {{@index}}, name : {{name}},color code :{{this.color}}</div>
     {{/each}}
 
+    //참고자료
+    //https://forums.meteor.com/t/each-problems-how-to-iterate-from-array/33564
     <h2> each in test </h2>
     {{#each item in eachTest}}
         {{#if equalTo (getColor item) "red"}}
