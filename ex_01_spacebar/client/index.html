@@ -41,11 +41,11 @@
     </form>
 
     <div name="resultbox">
-        {{#if equalTo  "red" }}
+        {{#if equalTo (getValue "_iftest")  "red" }}
             <div style="background-color: red"></div>
-        {{else if equalTo "blue"}}
+        {{else if equalTo (getValue "_iftest") "blue"}}
             <div style="background-color: blue"></div>
-        {{else if equalTo "green"}}
+        {{else if equalTo (getValue "_iftest") "green"}}
             <div style="background-color: green"></div>
         {{else}}
             <div style="background-color: gray"></div>

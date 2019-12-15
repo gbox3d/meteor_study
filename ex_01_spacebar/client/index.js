@@ -40,8 +40,14 @@ Template.main.helpers({
   "test_spacebars"() {
     return rtVal.get();
   },
-  "equalTo"(a) {
-    return a === _iftest.get()
+  "getValue"(val_name) {
+    if(val_name === "rtVal")
+      return rtVal.get()
+    else if(val_name === "_iftest")
+      return _iftest.get();
+  },
+  "equalTo"(a,b) {
+    return a === b
   },
   "test_array"() {
     return arrayTest.get()
