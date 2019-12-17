@@ -18,6 +18,9 @@ Meteor.startup(function () {
     Meteor.users.find().observeChanges({
         added(id,fileds) {
             console.log(Meteor.user())
+        },
+        changed(id,fileds) {
+            console.log(id,fileds)
         }
     })
 
@@ -76,9 +79,28 @@ Template.main.events({
                 }
             });
     },
+    "submit [name=edit-user]"(evt,instance) {
+        evt.preventDefault()
+
+        console.log(evt.target.email.value)
+
+        Meteor.call("edit/user", {
+            name : evt.target.name.value,
+            email : evt.target.email.value
+        }, (err,_)=> {
+            if(err) console.log(err)
+            else {
+                console.log(_)
+            }
+        })
+
+    },
     "click form[name=edit-user] [name=logout]"(evt,instance) {
         evt.preventDefault()
         Meteor.logout()
+    },
+    "click [name=subscribe-userdata]"(evt,instance) {
+        instance.subscribe("users/userData")
 
     }
 })

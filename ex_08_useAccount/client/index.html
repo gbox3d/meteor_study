@@ -1,5 +1,5 @@
 <head>
-    <title>exam 2</title>
+    <title>exam 8 user account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -30,6 +30,10 @@
         <p> current user : {{currentUser.username}} </p>
         <form name="edit-user">
             <div>
+                <div> email : <input id="email" value="{{currentUser.profile.email}}"></div>
+                <div> real name : <input id="name" value="{{currentUser.profile.name}}" ></div>
+                <div> change at : {{currentUser.changeAt}} </div>
+
                 <button name="edit">edit</button>
                 <button name="logout">logout</button>
             </div>
@@ -48,6 +52,10 @@
             </div>
         </form>
     {{/if}}
+
+    <div>
+        <button name="subscribe-userdata" > subscribe user data </button>
+    </div>
 
 
 

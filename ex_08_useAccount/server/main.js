@@ -25,7 +25,28 @@ Meteor.methods({
       throw e
 
     }
+  },
+  "edit/user"({name,email}) {
+
+    console.log(Meteor.userId())
+    console.log(Meteor.user())
+    console.log(this.userId)
+
+    Meteor.users.update({
+          _id: this.userId //현재 요청하는 아이디
+        },
+        {
+          $set :  {
+            "changeAt" : new Date(),
+            "profile.name": name,
+            "profile.email": email
+          }
+        });
+
+    return {err: false,user : Meteor.user()}
   }
+
+
 });
 
 Meteor.publish('users/admin/userList/all', function() {
@@ -39,6 +60,13 @@ Meteor.publish('users/admin/userList/all', function() {
     console.log('u not admin');
   }
 });
+
+//자신의 상세 정보 받아오기
+Meteor.publish('users/userData', function() {
+
+  return Meteor.users.find({_id:this.userId});
+});
+
 
 function createAdmin() {
   console.log('관리자를 생성합니다')
