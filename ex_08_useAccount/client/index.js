@@ -100,6 +100,7 @@ Template.main.events({
         Meteor.logout()
     },
     "click [name=subscribe-userdata]"(evt,instance) {
+        //자신의 데이터 구독하기
         instance.subscribe("users/userData")
 
     }

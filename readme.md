@@ -1,7 +1,7 @@
 ## 예제 1
-간단한 이밴트 처리
+블레이즈 템플릿
 ## 예제 2
-블레이즈 탬플릿 예제
+npm 사용하기 (feat 부트스트랩)
 ## 예제 3
 리액트브 변수 예제
 ## 예제 4
@@ -14,3 +14,8 @@ Flow-router 예제
 콜랙션 처리 예제
 ## 예제 8
 사용자 구현 예제
+
+## 참고자료
+
+https://docs.meteor.com/environment-variables.html#METEOR-SETTINGS  
+
