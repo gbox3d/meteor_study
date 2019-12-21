@@ -17,5 +17,7 @@ Flow-router 예제
 
 ## 참고자료
 
+### 셋업파일 관리
 https://docs.meteor.com/environment-variables.html#METEOR-SETTINGS  
+https://blog.meteor.com/the-meteor-chef-making-use-of-settings-json-3ed5be2d0bad  
 
