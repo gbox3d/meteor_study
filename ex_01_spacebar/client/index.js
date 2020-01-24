@@ -58,7 +58,9 @@ Template.main.helpers({
       default:
         return "gray"
     }
-
+  },
+  "plus"(a,b) {
+    return a + b
   },
   "equalTo"(a,b) {
     return a === b
@@ -72,5 +74,6 @@ Template.main.helpers({
   "withTest"() {
     return withTest.get();
   }
+
 
 });
